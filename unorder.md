@@ -16,4 +16,11 @@ yum install virt-who
 subscription-manager register --username=admin --password=secret --auto-attach --type=hypervisor
 cat /var/log/rhsm/rhsm.log
 
+systemctl start virt-who.service
+systemctl enable virt-who.service 
+
+virsh -c qemu:///system list --all
+qemu-img create system.qcow2 -f qcow2 40G
+yum install virt-viewer
+
 ```
